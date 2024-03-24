@@ -1,0 +1,13 @@
+form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+form > input{
+    flex-grow: 1;
+    text-indent: 5px;
+    border-radius: 8px;
+    height: 35px;
+    /* vertical-align: 20%; */
+    margin-right: 10px;
+}

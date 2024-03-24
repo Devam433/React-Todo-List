@@ -1,0 +1,16 @@
+input{
+    width: 40px;
+}
+.todo-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 10px 15px; */
+}
+.isCompleted{
+    height: 20px;
+}
+.todo-item > p{
+    flex-grow: 1;
+    margin-right: 10px;
+}

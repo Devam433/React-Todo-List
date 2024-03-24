@@ -1,0 +1,9 @@
+.todo-container{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: #8793d5;
+    padding: 10px 15px;
+    row-gap: 10px;
+    transform: translateX(100%);
+}
