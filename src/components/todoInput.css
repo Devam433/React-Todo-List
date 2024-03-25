@@ -11,3 +11,16 @@ form > input{
     /* vertical-align: 20%; */
     margin-right: 10px;
 }
+
+.todo-input-form-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.emptyTodo-warning{
+    color: #e1b3b3;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 15px
+}

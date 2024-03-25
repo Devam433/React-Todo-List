@@ -8,19 +8,23 @@ export function TodoContainer(){
   const [formData,setFormData] = useState("");
   const [todoItems,setTodoItems] = useState([]);
 
-  console.log(todoItems)
+  console.log(todoItems);
 
   function handleOnchange(e) {
     const { value } = e.target;
+    // if(value===''){ } 
     setFormData(value)
   }
-  function handleOnsubmit(e)
+  function handleOnsubmit(e,isEmpty)
   {
     e.preventDefault();
-    setTodoItems((prev)=>{
+    if(!isEmpty) {
+      setTodoItems((prev)=>{
         return [...prev,{todoItem: formData, id: crypto.randomUUID(), isCompleted: false}]
-    })
-    setFormData("");
+      })
+      setFormData("");
+    }
+    
   }
   function handleOnlick(TodoItemid) {
     setTodoItems((prev)=>{
