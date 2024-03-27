@@ -6,8 +6,10 @@ With an eye for clean and intuitive UI, it aims at providing a very smooth user 
 ## Features
 
 - Add
-- Delete
 - Check finished tasks
+- Delete
+- Edit
+
 
 
 ## Run Locally
