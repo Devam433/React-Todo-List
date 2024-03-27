@@ -4,15 +4,12 @@ import { useState } from "react";
 import "./todoContainer.css";
 
 export function TodoContainer(){
-
+  console.log('Todo conatiner Rerendered')
   const [formData,setFormData] = useState("");
   const [todoItems,setTodoItems] = useState([]);
 
-  console.log(todoItems);
-
   function handleOnchange(e) {
     const { value } = e.target;
-    // if(value===''){ } 
     setFormData(value)
   }
   function handleOnsubmit(e,isEmpty)
@@ -24,7 +21,6 @@ export function TodoContainer(){
       })
       setFormData("");
     }
-    
   }
   function handleOnlick(TodoItemid) {
     setTodoItems((prev)=>{
@@ -35,9 +31,7 @@ export function TodoContainer(){
       })
     })
   }
-
   function toggleIsChecked(TodoItemId,isCompleted) {
-    console.log(`i am ${isCompleted}`)
     setTodoItems((prev)=>{
       return prev.map((item)=>{
         if(item.id === TodoItemId) {
@@ -47,7 +41,24 @@ export function TodoContainer(){
       })
     })
   }
-
+  function editTodo(id) {
+    todoItems.forEach(item=>{
+      if(item.id === id) {
+        setFormData(item.todoItem);
+      }
+    })
+  }
+  function saveEditedTodo(id) {
+    setTodoItems(prev=>{
+      return prev.map(item=>{
+        if(item.id === id) {
+          return {...item, todoItem: formData}
+        }
+        return item;
+      })
+    })
+    setFormData("");
+  }
   return(
   <div className="todo-container">
     <Todoinput 
@@ -57,7 +68,7 @@ export function TodoContainer(){
     />
     <section className="todo-list-contaier">
     {todoItems.map((item)=>{
-      return <List todoItem={item.todoItem} key={item.id} id={item.id} isCompleted={item.isCompleted} handleOnlick={handleOnlick} toggleIsChecked={toggleIsChecked}/>
+      return <List todoItem={item.todoItem} key={item.id} id={item.id} isCompleted={item.isCompleted} handleOnlick={handleOnlick} toggleIsChecked={toggleIsChecked} editTodo={editTodo} saveEditedTodo={saveEditedTodo}/>
     })}
     </section>
   </div>

@@ -3,8 +3,10 @@ import { Button } from "./Button"
 import "./todoInput.css"
 
 export function Todoinput(props){
+    console.log('Todo Input Rerendered')
 
     const [isEmpty,setIsEmpty] =useState(false);
+    
     function checkIsEmpty() {
         if(props.formData ===''){
             setIsEmpty(true);

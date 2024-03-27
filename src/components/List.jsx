@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "./Button.jsx";
 import "./list.css";
 
 export function List(prop){
-    console.log(prop.style)
+    console.log('List Rerendered')
+    const [editOrSaveBtnValue,SeteditOrSaveBtnValue] = useState(false);
     return (
         <div className="todo-item">
             <input 
@@ -19,6 +20,15 @@ export function List(prop){
                 : 
                 <p>{prop.todoItem}</p>
             }
+            <Button
+                value={editOrSaveBtnValue ? 'Save' : "Edit"}
+                editTodo={prop.editTodo}
+                saveEditedTodo={prop.saveEditedTodo}
+                isEdit={true}
+                isSave={editOrSaveBtnValue}
+                id={prop.id}
+                SeteditOrSaveBtnValue={SeteditOrSaveBtnValue}
+            />
             <Button 
                 value="Detete"
                 isChecked={prop.isCompleted}
