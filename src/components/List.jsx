@@ -3,7 +3,7 @@ import { Button } from "./Button.jsx";
 import "./list.css";
 
 export function List(prop){
-    console.log('List Rerendered')
+    console.log('List Rerendered');
     const [editOrSaveBtnValue,SeteditOrSaveBtnValue] = useState(false);
     return (
         <div className="todo-item">
@@ -38,3 +38,4 @@ export function List(prop){
         </div>
     )
 }
+

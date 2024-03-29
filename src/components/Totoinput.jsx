@@ -4,7 +4,7 @@ import "./todoInput.css"
 
 export function Todoinput(props){
     console.log('Todo Input Rerendered')
-
+    
     const [isEmpty,setIsEmpty] =useState(false);
     
     function checkIsEmpty() {
@@ -15,14 +15,13 @@ export function Todoinput(props){
             setIsEmpty(false);
         }
     }
-
     return (
     <div className="todo-input-form-container">
         <form onSubmit={(e)=>{props.handleOnsubmit(e,isEmpty)}} className="todo-input-container-form">
             <input 
                 name="todo"
                 value={props.formData}
-                onChange={props.handleOnchange} 
+                onChange={props.handleOnchange}
                 type="text" id="todo-input" 
                 placeholder="Enter todo"
             />
